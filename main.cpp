@@ -16,6 +16,7 @@ void solve(vector<int> vect) {
 
             if (curSeqStart == 0) curSeqStart = i;
             curSeqLen++;
+
         } else {
             // check if previous seq is the longest
             // 1. it is
@@ -25,9 +26,10 @@ void solve(vector<int> vect) {
 
                 longestStart.push_back(curSeqStart);
                 longestLen = curSeqLen;
-                }
             // 2. it is equal
-
+            } else if (curSeqLen == longestLen) {
+                longestStart.push_back(curSeqStart);
+            }
             // 3. else - skip
 
             // restart variables

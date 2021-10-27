@@ -19,7 +19,13 @@ void solve(vector<int> vect) {
         } else {
             // check if previous seq is the longest
             // 1. it is
+            if (curSeqLen > longestLen) {
+                // clear arr
+                longestStart.clear();
 
+                longestStart.push_back(curSeqStart);
+                longestLen = curSeqLen;
+                }
             // 2. it is equal
 
             // 3. else - skip

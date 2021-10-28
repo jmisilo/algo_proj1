@@ -3,6 +3,7 @@
 #include <cstdlib> // srand, rand
 #include <cstdio> // NULL
 #include <time.h> // time
+#include <chrono> // high_resolution_clock
 
 using namespace std;
 
@@ -71,20 +72,30 @@ vector<int> generateVector(int n) {
     return new_vect;
 }
 
+// function to check execution time of function
+void executionTime(vector<int> vect) {
+
+    clock_t t = clock();
+
+    solve(vect);
+
+    t = clock() - t;
+
+    cout << endl << "Function with " << vect.size() << " elements was performed for ~" << ((float)t/CLOCKS_PER_SEC) << " sec.";
+}
+
 int main()
 {
     srand(time(NULL));
-    // vector<int> arr {-10, 5, 8, 1, -4, -4, 10, 3, -1, 1, -1, -2, -3};
-    // vector<int> x = generateVector(50);
-    /*
-    for (int i = 0; i < 50; i++) {
-        cout << x[i] << endl;
-    }
-    */
-    // solve(generateVector(500));
+    vector<int> emptyArr {};
+    vector<int> arr {-10, 5, 8, 1, -4, -4, 10, 3, -1, 1, -1, -2, -3};
+    vector<int> arr1 = generateVector(1);
+    vector<int> arr10 = generateVector(10);
+    vector<int> arr100 = generateVector(100);
+    vector<int> arr1000 = generateVector(1000);
+    vector<int> arr10000 = generateVector(10000000);
 
-    vector <int> a = {};
-    solve(a);
+    executionTime(arr10000);
 
     return 0;
 }

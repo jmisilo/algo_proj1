@@ -37,10 +37,25 @@ void solve(vector<int> vect) {
             curSeqLen = 0;
         }
     }
+
+    // print results
+    int start;
+
+    for (int i = 0; i < longestStart.size(); i++) {
+        cout << endl << "Podciag no. " << i << ": ";
+        start = longestStart[i];
+
+        for (int j = 0; j < longestLen + 1; j++) {
+            cout << vect[start + j] << " ";
+        }
+    }
 }
 
 int main()
 {
+    vector<int> arr {-10, 5, 8, 1, -4, -4, 10, 3, -1, 1, -1, -2, -3};
+
+    solve(arr);
 
     return 0;
 }

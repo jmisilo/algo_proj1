@@ -42,14 +42,20 @@ void solve(vector<int> vect) {
     }
 
     // print results
-    int start;
+    // if all elements are equal
+    if (longestLen == 0) {
+        cout << "All elements are equal or passed vector is empty!" << endl;
 
-    for (int i = 0; i < longestStart.size(); i++) {
-        cout << endl << "Podciag no. " << i << ": ";
-        start = longestStart[i];
+    } else {
+        int start;
 
-        for (int j = 0; j < longestLen + 1; j++) {
-            cout << vect[start + j] << " ";
+        for (int i = 0; i < longestStart.size(); i++) {
+            cout << endl << "Podciag no. " << i << ": ";
+            start = longestStart[i];
+
+            for (int j = 0; j < longestLen + 1; j++) {
+                cout << vect[start + j] << " ";
+            }
         }
     }
 }
@@ -68,19 +74,17 @@ vector<int> generateVector(int n) {
 int main()
 {
     srand(time(NULL));
-    vector<int> arr {-10, 5, 8, 1, -4, -4, 10, 3, -1, 1, -1, -2, -3};
-    // solve(arr);
-
-    // srand(time(NULL));
-    // cout << rand() % 100 + 1;
-
-    vector<int> x = generateVector(50);
+    // vector<int> arr {-10, 5, 8, 1, -4, -4, 10, 3, -1, 1, -1, -2, -3};
+    // vector<int> x = generateVector(50);
     /*
     for (int i = 0; i < 50; i++) {
         cout << x[i] << endl;
     }
     */
-    solve(generateVector(500));
+    // solve(generateVector(500));
+
+    vector <int> a = {};
+    solve(a);
 
     return 0;
 }

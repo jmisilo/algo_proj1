@@ -1,5 +1,8 @@
 #include <iostream>
 #include <vector>
+#include <cstdlib> // srand, rand
+#include <cstdio> // NULL
+#include <time.h> // time
 
 using namespace std;
 
@@ -51,11 +54,33 @@ void solve(vector<int> vect) {
     }
 }
 
+// generate n el. vector
+vector<int> generateVector(int n) {
+    vector<int> new_vect;
+
+    for(int i = 0; i < n; i++) {
+        new_vect.push_back(rand() % 10);
+    }
+
+    return new_vect;
+}
+
 int main()
 {
+    srand(time(NULL));
     vector<int> arr {-10, 5, 8, 1, -4, -4, 10, 3, -1, 1, -1, -2, -3};
+    // solve(arr);
 
-    solve(arr);
+    // srand(time(NULL));
+    // cout << rand() % 100 + 1;
+
+    vector<int> x = generateVector(50);
+    /*
+    for (int i = 0; i < 50; i++) {
+        cout << x[i] << endl;
+    }
+    */
+    solve(generateVector(500));
 
     return 0;
 }

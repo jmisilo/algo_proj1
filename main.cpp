@@ -92,6 +92,9 @@ int main()
 
     vector<int> arr {-10, 5, 8, 1, -4, -4, 10, 3, -1, 1};
 
+    solve(arr);
+
+    /*
     vector<int> arr10000 = generateVector(10000);
     vector<int> arr50000 = generateVector(50000);
     vector<int> arr100000 = generateVector(100000);
@@ -113,6 +116,7 @@ int main()
     executionTime(arr15000000);
     executionTime(arr20000000);
     executionTime(arr25000000);
+    */
 
     return 0;
 }

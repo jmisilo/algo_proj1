@@ -3,7 +3,6 @@
 #include <cstdlib> // srand, rand
 #include <cstdio> // NULL
 #include <time.h> // time
-#include <chrono> // high_resolution_clock
 
 using namespace std;
 

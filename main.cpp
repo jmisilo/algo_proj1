@@ -3,10 +3,10 @@
 #include <cstdlib> // srand, rand
 #include <cstdio> // NULL
 #include <time.h> // time
-
+#include <fstream> //fstream
 using namespace std;
 
-void solve(vector<int> vect) {
+void solve(vector<int> vect, string pathToOutput) {
 
     int curSeqStart = 0;
     int curSeqLen = 0;
@@ -41,11 +41,16 @@ void solve(vector<int> vect) {
         }
     }
 
+    fstream out;
+    out.open(pathToOutput, ios::out);
+
     // print results
     // if all elements are equal
     if (longestLen == 0) {
-        cout << "All elements are equal or passed vector is empty!" << endl;
+        string outputStr = "All elements are equal or passed vector is empty!";
 
+        cout << outputStr << endl;
+        out << outputStr;
     } else {
         int start;
         cout << "---------------------" << endl;
@@ -55,7 +60,9 @@ void solve(vector<int> vect) {
 
             for (int j = 0; j < longestLen + 1; j++) {
                 cout << vect[start + j] << " ";
+                out << vect[start + j] << " ";
             }
+            out << endl;
         }
         cout << endl << "---------------------" << endl;
     }
@@ -77,7 +84,7 @@ void executionTime(vector<int> vect) {
 
     clock_t t = clock();
 
-    solve(vect);
+    solve(vect, "wyjscie.txt"); // funkcja wykonujaca dane zadanie
 
     t = clock() - t;
 
@@ -90,9 +97,40 @@ int main()
 {
     srand(time(NULL));
 
-    vector<int> arr {-10, 5, 8, 1, -4, -4, 10, 3, -1, 1};
+    int input;
+    vector<int> arr;
 
-    solve(arr);
+    cout << "Czy chcesz wczytaæ dane z pliku czy losowaæ tablicê?" << endl << "1 - z pliku" << endl << "2 - losowanie" << endl;
+    cin >> input;
+
+    switch(input) {
+
+    // read data from file
+    case 1: {
+        fstream in;
+
+        in.open("wejscie.txt", ios::in);
+
+        int a;
+        while(!in.eof()) {
+            in >> a;
+            arr.push_back(a);
+        }
+
+        in.close();
+        break;
+    }
+    // work on data from code
+    case 2:
+        arr = {-10, 5, 8, 1, -4, -4, 10, 3, -1, 1};
+        break;
+    default:
+        cout << "Powinienes podac 1 lub 2!!!";
+        exit(0);
+    };
+
+
+    solve(arr, "wyjscie.txt");
 
     /*
     vector<int> arr10000 = generateVector(10000);

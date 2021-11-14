@@ -54,6 +54,13 @@ void solve(vector<int> vect, string pathToOutput) {
     } else {
         int start;
         cout << "---------------------" << endl;
+        cout << "Ciag: ";
+        for(int i = 0; i < vect.size(); i++) {
+            cout << vect[i] << ", ";
+        }
+
+        cout << endl;
+
         for (int i = 0; i < longestStart.size(); i++) {
             cout << "Podciag no. " << i << ": ";
             start = longestStart[i];
@@ -121,9 +128,24 @@ int main()
         break;
     }
     // work on data from code
-    case 2:
+    case 2: {
         arr = {-10, 5, 8, 1, -4, -4, 10, 3, -1, 1};
+
+        vector<int> arr100 = generateVector(100);
+        vector<int> arr200 = generateVector(200);
+        vector<int> arr300 = generateVector(300);
+        vector<int> arr50 = generateVector(50);
+        vector<int> arr20 = generateVector(20);
+        vector<int> arr15 = generateVector(15);
+
+        solve(arr15, "wyjscie.txt");
+        solve(arr20, "wyjscie.txt");
+        solve(arr50, "wyjscie.txt");
+        solve(arr100, "wyjscie.txt");
+        solve(arr200, "wyjscie.txt");
+        solve(arr300, "wyjscie.txt");
         break;
+    }
     default:
         cout << "Powinienes podac 1 lub 2!!!";
         exit(0);
